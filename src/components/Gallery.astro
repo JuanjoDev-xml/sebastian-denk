@@ -1,18 +1,40 @@
 ---
-import Icon from "./Icon.astro";
+import { Image } from "astro:assets";
 import SectionHeading from "./SectionHeading.astro";
 
-// Placeholders: reemplazá cada uno por una foto real (src/assets/trabajo-1.jpg, etc.)
-const placeholders = Array.from({ length: 6 });
+// Importá cada imagen real que subiste a src/assets/
+// (ajustá los nombres de archivo a como se llamen los tuyos)
+import trabajo1 from "../assets/trabajo-1.jpg";
+import trabajo2 from "../assets/trabajo-2.jpg";
+import trabajo3 from "../assets/trabajo-3.jpg";
+import trabajo4 from "../assets/trabajo-4.jpg";
+import trabajo5 from "../assets/trabajo-5.jpg";
+import trabajo6 from "../assets/trabajo-6.jpg";
+
+// Un array de objetos: la imagen importada + su texto alternativo
+// (el "alt" es importante para accesibilidad y SEO — describe qué se ve)
+const photos = [
+  { src: trabajo1, alt: "Tablero eléctrico instalado" },
+  { src: trabajo2, alt: "Instalación eléctrica residencial" },
+  { src: trabajo3, alt: "Cableado prolijo en obra" },
+  { src: trabajo4, alt: "Instalación de aire acondicionado" },
+  { src: trabajo5, alt: "Mantenimiento de tablero" },
+  { src: trabajo6, alt: "Trabajo terminado" },
+];
 ---
 <section id="trabajos" class="bg-white py-24">
   <div class="max-w-6xl mx-auto px-6">
     <SectionHeading eyebrow="Trabajos realizados" title="Prolijidad que se nota" />
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {placeholders.map((_, i) => (
-        <div class="reveal aspect-[4/3] rounded-xl bg-cyan-50 border border-cyan-500/20 flex flex-col items-center justify-center text-cyan-700">
-          <Icon name="camera" class="w-8 h-8" />
-          <span class="font-mono text-xs mt-2">Foto {i + 1}</span>
+      {photos.map((p) => (
+        <div class="reveal aspect-[4/3] rounded-xl overflow-hidden border border-cyan-500/20">
+          <Image
+            src={p.src}
+            alt={p.alt}
+            width={600}
+            height={450}
+            class="w-full h-full object-cover"
+          />
         </div>
       ))}
     </div>
