@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+@theme {
+    --color-brand-cyan: oklch(0.75 0.15 220);
+    --color-brand-carbon: oklch(0.2 0.02 260);
+}
