@@ -2,6 +2,7 @@
 import Icon from "./Icon.astro";
 import CtaButton from "./CtaButton.astro";
 const whatsapp = "https://wa.me/5491100000000"; // TODO
+const facebook = "https://facebook.com/TU-PAGINA"; // TODO: reemplazar por la real
 ---
 <section id="contacto" class="bg-carbon-900 py-24">
   <div class="max-w-4xl mx-auto px-6 text-center">
@@ -13,16 +14,9 @@ const whatsapp = "https://wa.me/5491100000000"; // TODO
       Contame qué necesitás y te respondo a la brevedad con un presupuesto.
     </p>
     <div class="flex justify-center mb-12">
-      <CtaButton href={whatsapp} label="Escribir por WhatsApp" />
+      <CtaButton href={whatsapp} label="Escribir por WhatsApp" variant="light" />
     </div>
 
-    <!-- 
-      Formulario simple, SIN backend por ahora: solo abre el mail del 
-      usuario con "mailto:". Para recibir estos mensajes de forma más 
-      prolija (sin depender del mail del cliente) más adelante se puede 
-      conectar a un servicio como Formspree o Web3Forms, gratis y sin 
-      backend propio.
-    -->
     <form
       action="mailto:sebastian@ejemplo.com"
       method="POST"
@@ -50,5 +44,15 @@ const whatsapp = "https://wa.me/5491100000000"; // TODO
         Enviar mensaje
       </button>
     </form>
+
+    <!-- CTA secundario: más discreto que el de WhatsApp a propósito,
+         para no competir con el canal de contacto principal -->
+    
+      href={facebook}
+      class="mt-6 inline-flex items-center gap-2 text-sm text-carbon-400 hover:text-cyan-400 transition-colors"
+    >
+      <Icon name="facebook" class="w-4 h-4" />
+      Seguime en Facebook
+    </a>
   </div>
 </section>
