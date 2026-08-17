@@ -1,6 +1,6 @@
 ---
 import CtaButton from "./CtaButton.astro";
-const whatsapp = "https://wa.me/5492914198285"; // TODO: mismo número que en Header
+const whatsapp = "https://wa.me/5492914198285";
 ---
 <section class="relative overflow-hidden bg-white pt-20 pb-24 md:pt-28 md:pb-32">
   <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
@@ -12,37 +12,11 @@ const whatsapp = "https://wa.me/5492914198285"; // TODO: mismo número que en He
         Instalaciones seguras, hechas para durar.
       </h1>
       <p class="text-carbon-700 text-lg mt-6 max-w-md">
-        Sebastián Denk, trabajos residenciales y comerciales, tableros, urgencias y aires acondicionados, con la prolijidad de un profesional matriculado.
+        Sebastián Denk, trabajos residenciales, comerciales e industriales, aires acondicionados, con la prolijidad de un profesional matriculado.
       </p>
       <div class="mt-8">
         <CtaButton href={whatsapp} label="Pedir presupuesto" />
       </div>
-    </div>
-
-    <!-- El "trazo de circuito": una línea SVG que se dibuja sola al 
-        cargar la página (ver la animación .circuit-path en global.css) -->
-    <div class="relative h-64 md:h-80">
-      <svg viewBox="0 0 400 300" class="w-full h-full" fill="none">
-        <path
-          class="circuit-path"
-          d="M20 250 L20 180 L120 180 L120 100 L220 100 L220 40 L380 40"
-          stroke="#12161C"
-          stroke-width="2"
-          stroke-linecap="round"
-        />
-        <path
-          class="circuit-path"
-          style="animation-delay: 0.6s"
-          d="M20 250 L140 250 L140 150 L260 150 L260 200 L380 200"
-          stroke="#05DBEE"
-          stroke-width="2"
-          stroke-linecap="round"
-        />
-        <!-- Nodos: los círculos en las "esquinas" del circuito -->
-        <circle cx="380" cy="40" r="5" fill="#05DBEE" />
-        <circle cx="380" cy="200" r="5" fill="#12161C" />
-        <circle cx="20" cy="250" r="5" fill="#12161C" />
-      </svg>
     </div>
   </div>
 </section>
