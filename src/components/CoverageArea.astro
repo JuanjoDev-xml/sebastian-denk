@@ -1,0 +1,20 @@
+---
+import Icon from "./Icon.astro";
+import SectionHeading from "./SectionHeading.astro";
+
+// TODO: reemplazá por las zonas reales donde trabaja Sebastián
+const zones = ["Bahía Blanca", "Punta Alta", "Coronel Rosales", "Villa Rosas"];
+---
+<section class="bg-white py-24">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <SectionHeading eyebrow="Dónde trabajo" title="Zona de cobertura" />
+    <div class="reveal flex flex-wrap justify-center gap-3">
+      {zones.map((z) => (
+        <span class="inline-flex items-center gap-2 font-mono text-sm bg-carbon-900 text-white px-4 py-2 rounded-full">
+          <Icon name="map-pin" class="w-4 h-4" />
+          {z}
+        </span>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,19 @@
+---
+import CtaButton from "./CtaButton.astro";
+// TODO: reemplazá por el número real de Sebastián (formato: código de país + número, sin espacios ni +)
+const whatsapp = "https://wa.me/5491100000000";
+---
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-carbon-900/10">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#" class="font-display font-bold text-lg text-carbon-900">
+      Denk<span class="text-cyan-600">.</span>Electricidad
+    </a>
+    <nav class="hidden md:flex gap-8 font-medium text-sm text-carbon-700">
+      <a href="#servicios" class="hover:text-cyan-600 transition-colors">Servicios</a>
+      <a href="#trabajos" class="hover:text-cyan-600 transition-colors">Trabajos</a>
+      <a href="#reseñas" class="hover:text-cyan-600 transition-colors">Reseñas</a>
+      <a href="#contacto" class="hover:text-cyan-600 transition-colors">Contacto</a>
+    </nav>
+    <CtaButton href={whatsapp} label="Escribime" variant="outline" />
+  </div>
+</header>

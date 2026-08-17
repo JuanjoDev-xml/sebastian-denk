@@ -1,0 +1,33 @@
+---
+import Icon from "./Icon.astro";
+import SectionHeading from "./SectionHeading.astro";
+
+// Guardamos los servicios en un array de objetos. Así, si mañana 
+// Sebastián agrega un servicio nuevo, sumás un objeto acá y no tenés 
+// que copiar/pegar HTML.
+const services = [
+  { icon: "bolt", title: "Instalaciones eléctricas", desc: "Cableado y puesta a punto para obra nueva o remodelación, residencial o comercial. Todo tipo de mantenimientos. Montajes embutidos y a la vista." },
+  { icon: "panel", title: "Tableros eléctricos", desc: "Armado, actualización y mantenimiento de tableros según normativa vigente. Pedido de medidor y remodelaciones." },
+  { icon: "clock", title: "Urgencias", desc: "Reparaciones y guardias para cortes o fallas que no pueden esperar." },
+  { icon: "snowflake", title: "Aires acondicionados", desc: "Instalación, conexión eléctrica, mantenimientos y arreglos de equipos de climatización split." },
+] as const;
+---
+<section id="servicios" class="bg-white py-24">
+  <div class="max-w-6xl mx-auto px-6">
+    <SectionHeading eyebrow="Qué hago" title="Servicios" />
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {services.map((s, i) => (
+        <div
+          class="reveal p-6 rounded-2xl border border-carbon-900/10 hover:border-cyan-500 hover:shadow-lg hover:shadow-cyan-500/10 transition-all duration-300"
+          style={`transition-delay: ${i * 100}ms`}
+        >
+          <div class="w-12 h-12 rounded-xl bg-cyan-50 text-cyan-700 flex items-center justify-center mb-4">
+            <Icon name={s.icon} />
+          </div>
+          <h3 class="font-display font-semibold text-carbon-900">{s.title}</h3>
+          <p class="text-sm text-carbon-700 mt-2">{s.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

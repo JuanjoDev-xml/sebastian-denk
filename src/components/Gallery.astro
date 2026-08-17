@@ -1,0 +1,20 @@
+---
+import Icon from "./Icon.astro";
+import SectionHeading from "./SectionHeading.astro";
+
+// Placeholders: reemplazá cada uno por una foto real (src/assets/trabajo-1.jpg, etc.)
+const placeholders = Array.from({ length: 6 });
+---
+<section id="trabajos" class="bg-white py-24">
+  <div class="max-w-6xl mx-auto px-6">
+    <SectionHeading eyebrow="Trabajos realizados" title="Prolijidad que se nota" />
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {placeholders.map((_, i) => (
+        <div class="reveal aspect-[4/3] rounded-xl bg-cyan-50 border border-cyan-500/20 flex flex-col items-center justify-center text-cyan-700">
+          <Icon name="camera" class="w-8 h-8" />
+          <span class="font-mono text-xs mt-2">Foto {i + 1}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

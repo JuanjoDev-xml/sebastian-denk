@@ -1,0 +1,27 @@
+---
+import Icon from "./Icon.astro";
+const whatsapp = "https://wa.me/5491100000000"; // TODO
+const djLink = "#"; // TODO: reemplazar cuando tengas la web/perfil del DJ listo
+---
+<footer class="bg-white border-t border-carbon-900/10 py-10">
+  <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+    <div class="text-center md:text-left">
+      <p class="font-display font-semibold text-carbon-900">Sebastián Denk</p>
+      <p class="text-sm text-carbon-700">Electricista Matriculado — Bahía Blanca</p>
+    </div>
+    <a href={whatsapp} class="flex items-center gap-2 text-sm text-carbon-700 hover:text-cyan-600 transition-colors">
+      <Icon name="whatsapp" class="w-5 h-5" />
+      Escribime por WhatsApp
+    </a>
+  </div>
+
+  <!-- 
+    El link al DJ: separado, chico, gris — a propósito discreto para 
+    no competir con la identidad "electricista" del resto del sitio. 
+  -->
+  <div class="text-center mt-8">
+    <a href={djLink} class="text-xs text-carbon-400 hover:text-carbon-700 transition-colors">
+      ¿Buscás DJ para tu evento? Clickeá acá
+    </a>
+  </div>
+</footer>

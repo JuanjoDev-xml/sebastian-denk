@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+/* Google Fonts: las 3 tipografías que elegimos */
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap");
+
+/* Tokens de diseño: acá definimos nuestra paleta y tipografías como
+    variables. Tailwind v4 lee este bloque @theme y genera automáticamente
+    clases como bg-cyan-500, text-carbon-900, font-display, etc. */
+@theme {
+    --color-cyan-50: #e6fbfd;
+    --color-cyan-500: #05dbee;
+    --color-cyan-600: #04b9cc;
+    --color-cyan-700: #0891a8;
+
+    --color-carbon-950: #0b0e13;
+    --color-carbon-900: #12161c;
+    --color-carbon-700: #2b323c;
+    --color-carbon-400: #6b7280;
+
+    --font-display: "Space Grotesk", sans-serif;
+    --font-body: "Inter", sans-serif;
+    --font-mono: "IBM Plex Mono", monospace;
+}
+
+/* Estilos base globales, fuera de @theme porque no son "tokens" 
+   sino reglas de CSS normales */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-carbon-900);
+}
+
+::selection {
+    background-color: var(--color-cyan-500);
+    color: var(--color-carbon-950);
+}
+
+/* --- Animación de scroll-reveal --- 
+    Empieza invisible y desplazada, y una clase .is-visible (que agrega 
+    nuestro JS cuando el elemento entra en pantalla) la lleva a su 
+    posición final con una transición suave. */
+.reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Respeta a los usuarios que desactivaron animaciones en su sistema 
+   operativo (accesibilidad) */
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    * {
+        animation: none !important;
+    }
+}
+
+/* --- Animación del trazo de circuito del Hero --- 
+    stroke-dasharray/dashoffset es una técnica clásica de SVG: dibujamos 
+    una línea "cortada" en segmentos invisibles y la vamos revelando. */
+.circuit-path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw-circuit 1.8s ease-out forwards 0.3s;
+}
+@keyframes draw-circuit {
+    to {
+    stroke-dashoffset: 0;
+    }
+}

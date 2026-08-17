@@ -1,0 +1,27 @@
+---
+import Icon from "./Icon.astro";
+import SectionHeading from "./SectionHeading.astro";
+
+const points = [
+  { icon: "badge", title: "Matriculado", desc: "Trabajo habilitado y bajo normativa, con respaldo profesional." },
+  { icon: "clock", title: "Experiencia real", desc: "Años de trabajo en instalaciones residenciales y comerciales." },
+  { icon: "shield", title: "Garantía", desc: "Cada trabajo entregado queda garantizado por escrito." },
+  { icon: "bolt", title: "Seguridad primero", desc: "Instalaciones pensadas para durar y proteger, no solo para funcionar." },
+] as const;
+---
+<section class="bg-carbon-900 py-24">
+  <div class="max-w-6xl mx-auto px-6">
+    <SectionHeading eyebrow="Por qué elegirme" title="Trabajo serio, de principio a fin" />
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {points.map((p) => (
+        <div class="reveal text-center">
+          <div class="w-14 h-14 mx-auto rounded-full bg-carbon-700 text-cyan-400 flex items-center justify-center mb-4">
+            <Icon name={p.icon} />
+          </div>
+          <h3 class="font-display font-semibold text-white">{p.title}</h3>
+          <p class="text-sm text-carbon-400 mt-2">{p.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
