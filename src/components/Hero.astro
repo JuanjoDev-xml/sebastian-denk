@@ -1,22 +1,52 @@
 ---
 import CtaButton from "./CtaButton.astro";
-const whatsapp = "https://wa.me/5492914198285";
+const whatsapp = "https://wa.me/5491100000000";
 ---
-<section class="relative overflow-hidden bg-white pt-20 pb-24 md:pt-28 md:pb-32">
-  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-    <div>
-      <span class="inline-block font-mono text-xs tracking-wide uppercase text-cyan-700 bg-cyan-50 px-3 py-1 rounded-full mb-6">
-        Electricista Matriculado
-      </span>
-      <h1 class="font-display text-4xl md:text-5xl font-bold text-carbon-900 leading-tight">
-        Instalaciones seguras, hechas para durar.
-      </h1>
-      <p class="text-carbon-700 text-lg mt-6 max-w-md">
-        Sebastián Denk, trabajos residenciales, comerciales e industriales, aires acondicionados, con la prolijidad de un profesional matriculado.
-      </p>
-      <div class="mt-8">
-        <CtaButton href={whatsapp} label="Pedir presupuesto" />
-      </div>
+<section class="relative min-h-dvh flex items-center overflow-hidden bg-white">
+  <!--
+    La imagen vive en public/hero-bg.webp. Los archivos de public/ se
+    sirven "tal cual" desde la raíz del sitio, por eso acá se referencia
+    con una ruta de texto ("/hero-bg.webp") y no con un import como
+    hicimos con las fotos de la Galería (que sí usan optimización
+    automática de Astro).
+  -->
+  <div
+    class="absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/hero-bg.webp');"
+  ></div>
+
+  <!--
+    Velo blanco semitransparente encima de la foto: sin esto, el texto
+    oscuro sería difícil de leer según qué tan clara/oscura sea la
+    imagen real que subiste. El degradé (de más opaco arriba a menos
+    abajo) le da algo de profundidad en vez de un bloque plano.
+  -->
+  <div class="absolute inset-0 bg-gradient-to-b from-white/95 via-white/85 to-white"></div>
+
+  <div class="relative max-w-2xl mx-auto px-6 text-center">
+    <!--
+      Cada elemento tiene la clase "reveal" (la misma que usa el resto
+      de la landing) y un "transition-delay" distinto en milisegundos,
+      para que no aparezcan todos juntos sino en cascada: primero la
+      etiqueta, después el título, después el texto, después el botón.
+    -->
+    <span class="reveal inline-block font-mono text-xs tracking-wide uppercase text-cyan-700 bg-cyan-50 px-3 py-1 rounded-full mb-6">
+      Electricista Matriculado
+    </span>
+    <h1
+      class="reveal font-display text-4xl md:text-5xl font-bold text-carbon-900 leading-tight"
+      style="transition-delay: 100ms"
+    >
+      Instalaciones eléctricas seguras, hechas para durar.
+    </h1>
+    <p
+      class="reveal text-carbon-700 text-lg mt-6 max-w-md mx-auto"
+      style="transition-delay: 200ms"
+    >
+      Sebastián Denk — trabajos residenciales y comerciales, tableros, urgencias y climatización, con la prolijidad de un profesional matriculado.
+    </p>
+    <div class="reveal mt-8 flex justify-center" style="transition-delay: 300ms">
+      <CtaButton href={whatsapp} label="Pedir presupuesto" />
     </div>
   </div>
 </section>
